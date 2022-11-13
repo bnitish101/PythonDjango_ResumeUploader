@@ -1,11 +1,11 @@
 from django import forms
 from .models import Resume
 
+CHOICES_GENDER = [('1', 'Male'), ('2', 'Female'), ('3', 'Other')]
+CHOICES_JOBCITY = [('1', 'Mumbai'), ('2', 'Pune'), ('3', 'Delhi')]
 class ResumeForm(forms.ModelForm):
-    CHOICES_GENDER = [('1', 'Male'), ('2', 'Female'), ('3', 'Other')]
-    CHOICES_JOBCITY = [('1', 'Mumbai'), ('2', 'Pune'), ('3', 'Delhi')]
     gender = forms.ChoiceField(widget=forms.RadioSelect, choices=CHOICES_GENDER)
-    job_city = forms.ChoiceField(widget=forms.CheckboxSelectMultiple(attrs={"class":"inline"}), choices=CHOICES_JOBCITY)
+    job_city = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple(attrs={"class":"inline"}), choices=CHOICES_JOBCITY)
 
     class Meta:
         model = Resume

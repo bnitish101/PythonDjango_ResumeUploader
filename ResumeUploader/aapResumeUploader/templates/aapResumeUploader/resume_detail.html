@@ -29,34 +29,24 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 shadow">
-                <h2>Resume Uploader Form </h2>
-                <form action="" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% comment %} {{ form.as_p }} {% endcomment %}
-                    {% for form_field in form %}
-                        <div class="mb-3 row">
-                            <label for="inputName" class="col-4 col-form-label">{{form_field.label_tag}}</label>
-                            <div class="col-8">
-                                {{form_field}}
-                            </div>
-                        </div>
-                    {% endfor %}
-                    <div class="mb-3 row">
-                        <div class="offset-sm-4 col-sm-8">
-                            <button type="submit" class="btn btn-primary">Action</button>
-                        </div>
-                    </div>
-                </form>
+                <h2>Candidate Details </h2>
+                <p>{{object.name}}</p>
+                <p>{{object.dob}}</p>
+                <p>{{object.gender}}</p>
+                <p>{{object.locality}}</p>
+                <p>{{object.city}}</p>
+                <p>{{object.pin}}</p>
+                <p>{{object.state}}</p>
+                <p>{{object.mobile}}</p>
+                <p>{{object.email}}</p>
+                <p>{{object.job_city}}</p>
+                <p>{{object.my_file}}</p>
             </div>
             <div class="col-lg-4">
-                <h2>Candidate List:</h2>
-                <!-- Hover added -->
-                <div class="list-group">
-                    {% for obj in resume_list %}
-                      {% url 'candidate_detail' obj.id as ucd_id %}
-                      <a href="{{ucd_id}}" class="list-group-item list-group-item-action">{{obj.id}}. {{obj.name}}</a>
-                    {% endfor %}
-                </div>
+                <h2>Candidate Profile</h2>
+                <p>{{object.profile_image}}</p>
+                <img src="{{object.media.profile_image.url}}" class="img-fluid rounded-top" alt="">
+                <img src="{{object.profile_image.url}}" alt="" class="img-fluid img-thumbnail float-end mt-4" width="150" height="150">
             </div>
         </div>
     </div>
