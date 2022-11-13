@@ -54,7 +54,11 @@
                 <div class="list-group">
                     {% for obj in resume_list %}
                       {% url 'candidate_detail' obj.id as ucd_id %}
-                      <a href="{{ucd_id}}" class="list-group-item list-group-item-action">{{obj.id}}. {{obj.name}}</a>
+                      <a href="{{ucd_id}}" class="list-group-item list-group-item-action"> 
+                        <img src="{{obj.profile_image.url}}" alt="" class="img-fluid img-thumbnail float-end" width="50" height="50"> 
+                        {{obj.id}}. {{obj.name}} 
+                      </a>
+                      
                     {% endfor %}
                 </div>
             </div>

@@ -29,24 +29,23 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 shadow">
-                <h2>Candidate Details </h2>
-                <p>{{object.name}}</p>
-                <p>{{object.dob}}</p>
-                <p>{{object.gender}}</p>
-                <p>{{object.locality}}</p>
-                <p>{{object.city}}</p>
-                <p>{{object.pin}}</p>
-                <p>{{object.state}}</p>
-                <p>{{object.mobile}}</p>
-                <p>{{object.email}}</p>
-                <p>{{object.job_city}}</p>
-                <p>{{object.my_file}}</p>
+                <h2> <a name="" id="" class="btn btn-primary" href="{% url 'resume' %}" role="button">Add</a> Candidate Details </h2>
+                <p><b>Name</b>: {{object.name}}</p>
+                <p><b>Dob</b>: {{object.dob}}</p>
+                <p><b>Gender</b>: {{object.gender}}</p>
+                <p><b>Locality</b>: {{object.locality}}</p>
+                <p><b>City</b>: {{object.city}}</p>
+                <p><b>Pin</b>: {{object.pin}}</p>
+                <p><b>State</b>: {{object.state}}</p>
+                <p><b>Mobile</b>: {{object.mobile}}</p>
+                <p><b>Email</b>: {{object.email}}</p>
+                <p><b>Job city</b>: {{object.job_city}}</p>
+                <a href="{{object.my_file.url}}" class="badge bg-primary">Download Resume: < {{object.my_file}} ></a>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 text-center">
                 <h2>Candidate Profile</h2>
                 <p>{{object.profile_image}}</p>
-                <img src="{{object.media.profile_image.url}}" class="img-fluid rounded-top" alt="">
-                <img src="{{object.profile_image.url}}" alt="" class="img-fluid img-thumbnail float-end mt-4" width="150" height="150">
+                <img src="{{object.profile_image.url}}" alt="" class="img-fluid img-thumbnail mt-4" width="150" height="150">
             </div>
         </div>
     </div>
